@@ -1,3 +1,3 @@
-# Operating System Scheduling Algorithns
+# Operating System Scheduling Algorithms
 
 Language: Python
