@@ -1,7 +1,7 @@
 from tabulate import tabulate
 
 def completion_time(n,a_time,b_time):
-    data = [(i,j,k) for i,j,k in zip([i for i in range(n)],a_time,b_time)]
+    data = list(zip(list(range(n)), a_time, b_time))
     data.sort(key=lambda x:(x[1],x[2]))
     c_t = [0]*n
     clock = 0
@@ -21,7 +21,11 @@ def print_all(p_list,a_list,b_list,c_list,t_list,w_list):
     m = [[m[j][i] for j in range(len(m))] for i in range(len(m[0]))]
     print('\n'*2)
     print(tabulate(m ,headers= ['Process List','Arrival Time',' Burst Time', 'Completion Time', 'Turn Over Time'  ,'Waiting Time'],tablefmt="github"),end='\n\n')
-    print("Average Waiting Time = "+ str(sum(w_list)/len(w_list)),"Average Turn Around Time = "+ str(sum(t_list)/len(t_list)),sep='\n')
+    print(
+        f"Average Waiting Time = {str(sum(w_list)/len(w_list))}",
+        f"Average Turn Around Time = {str(sum(t_list)/len(t_list))}",
+        sep='\n',
+    )
 
 
 def SJF():
